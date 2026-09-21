@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Para usted, Val — mi perfect girl 🌻</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
+
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{background:#020504;color:#fff;font-family:"Cormorant Garamond",serif}
+
+:root{
+ --gold:#ffe36b;
+ --gold2:#f7c62f;
+ --cream:#fff9df;
+}
+
+.scene{
+ position:relative;width:100%;height:100dvh;overflow:hidden;
+ background:
+ radial-gradient(circle at 50% 54%,rgba(76,112,46,.18),transparent 27%),
+ radial-gradient(circle at 50% 82%,rgba(255,197,45,.08),transparent 30%),
+ linear-gradient(180deg,#010305 0%,#06100b 62%,#020504 100%);
+}
+
+/* CIELO */
+.sky{position:absolute;inset:0;overflow:hidden}
+.star{
+ position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;
+ opacity:.2;animation:twinkle var(--d) ease-in-out infinite;
+}
+.star.big{width:3px;height:3px}
+@keyframes twinkle{50%{opacity:.95;transform:scale(1.8)}}
+
+.spark{
+ position:absolute;width:4px;height:4px;border-radius:50%;
+ background:#ffe778;box-shadow:0 0 12px #ffe778;
+ opacity:0;animation:floatSpark 5s ease-in-out infinite;
+}
+@keyframes floatSpark{
+ 0%,100%{opacity:0;transform:translateY(20px) scale(.5)}
+ 35%,65%{opacity:.7}
+ 50%{transform:translateY(-25px) scale(1)}
+}
+
+.moon{
+ position:absolute;z-index:2;right:8%;top:9%;width:72px;height:72px;border-radius:50%;
+ background:radial-gradient(circle at 34% 30%,#fffce4,#e6ca72 54%,#997638);
+ opacity:.72;box-shadow:0 0 38px rgba(247,213,112,.2)
+}
+.moon:after{
+ content:"";position:absolute;width:12px;height:8px;border-radius:50%;
+ background:rgba(128,96,43,.16);left:43px;top:20px;transform:rotate(20deg)
+}
+
+.aurora{
+ position:absolute;left:50%;top:36%;width:100vw;height:55vh;
+ transform:translateX(-50%);
+ background:radial-gradient(ellipse,rgba(111,157,66,.09),transparent 62%);
+ filter:blur(18px)
+}
+
+/* ENCABEZADO */
+.header{
+ position:absolute;z-index:20;left:50%;top:6%;width:94%;
+ transform:translateX(-50%);text-align:center
+}
+.kicker{
+ font-size:14px;letter-spacing:4px;text-transform:uppercase;opacity:.7
+}
+.header h1{
+ margin:10px auto 0;max-width:680px;font-weight:500;
+ font-size:clamp(40px,10.7vw,62px);line-height:.98
+}
+.header h1 span{font-family:"Great Vibes",cursive;color:var(--gold)}
+.underline{
+ width:72px;height:1px;margin:14px auto 0;
+ background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.7
+}
+
+/* MENSAJE */
+.message{
+ position:absolute;z-index:24;left:50%;top:31%;
+ transform:translateX(-50%);width:94%;text-align:center;
+}
+.message .small{
+ font-size:clamp(22px,6.3vw,32px);opacity:.96
+}
+.message .main{
+ margin-top:3px;font-family:"Great Vibes",cursive;
+ color:var(--gold);font-size:clamp(48px,13vw,72px);line-height:1.05;
+ text-shadow:0 0 22px rgba(255,211,70,.13)
+}
+.message .love{
+ margin-top:8px;font-size:clamp(20px,5.5vw,28px);color:#fff;
+}
+.heart{color:var(--gold);display:inline-block;animation:heart 1.8s ease-in-out infinite}
+@keyframes heart{50%{transform:scale(1.13);text-shadow:0 0 14px rgba(255,215,70,.6)}}
+
+/* DESTELLO DETRÁS DEL RAMO */
+.bloomGlow{
+ position:absolute;z-index:4;left:50%;bottom:17%;width:430px;height:300px;
+ transform:translateX(-50%);border-radius:50%;
+ background:radial-gradient(ellipse,rgba(255,205,46,.13),transparent 66%);
+ filter:blur(12px);opacity:0;animation:glowIn 2s 4.6s forwards
+}
+@keyframes glowIn{to{opacity:1}}
+
+/* RAMO */
+.bouquet{
+ position:absolute;z-index:10;left:50%;bottom:-4px;
+ width:min(100vw,520px);height:49%;transform:translateX(-50%);
+}
+
+/* Los tallos NO salen primero: aparecen después del comienzo de las flores */
+.stem{
+ position:absolute;left:50%;bottom:0;width:6px;border-radius:8px;
+ transform-origin:bottom;background:linear-gradient(90deg,#173d20,#9bd14d,#254c25);
+ box-shadow:0 0 9px rgba(112,190,60,.28);
+ opacity:0;animation:stemIn 2.2s cubic-bezier(.22,.75,.2,1) forwards;
+ animation-delay:var(--delay)
+}
+.s1{height:73%;margin-left:-68px;--delay:4.8s}
+.s2{height:83%;margin-left:-30px;--delay:5.0s}
+.s3{height:90%;margin-left:0;--delay:5.2s}
+.s4{height:82%;margin-left:30px;--delay:5.4s}
+.s5{height:72%;margin-left:68px;--delay:5.6s}
+@keyframes stemIn{
+ 0%{opacity:0;transform:scaleY(0)}
+ 35%{opacity:.35}
+ 100%{opacity:1;transform:scaleY(1)}
+}
+
+/* HOJAS */
+.leaf{
+ position:absolute;width:92px;height:36px;border-radius:100% 0 100% 0;
+ background:linear-gradient(135deg,#a9df59,#3d8330 70%,#1b481f);
+ opacity:0;transform:scale(.15);
+ animation:leafIn 1.5s 6s cubic-bezier(.2,.8,.2,1) forwards
+}
+.leaf1{left:0;bottom:18%;transform:rotate(18deg) scale(.15)}
+.leaf2{left:16%;bottom:6%;transform:rotate(-28deg) scale(.15)}
+.leaf3{right:0;bottom:18%;transform:rotate(162deg) scale(.15)}
+.leaf4{right:16%;bottom:6%;transform:rotate(198deg) scale(.15)}
+@keyframes leafIn{to{opacity:1;transform:var(--r) scale(1)}}
+
+/* FLORES: pétalos + centro forman UNA sola unidad */
+.flower{
+ position:absolute;width:158px;height:158px;opacity:0;
+ animation:bloom 3.5s cubic-bezier(.16,.82,.18,1) forwards;
+}
+.fA{left:-4%;top:18%;animation-delay:2.0s}
+.fB{left:50%;top:-1%;margin-left:-79px;animation-delay:2.7s}
+.fC{right:-4%;top:18%;animation-delay:3.4s}
+.fD{left:10%;top:38%;animation-delay:4.1s}
+.fE{right:10%;top:38%;animation-delay:4.8s}
+
+@keyframes bloom{
+ 0%{opacity:0;transform:translateY(34px) scale(.04) rotate(-7deg)}
+ 42%{opacity:.32;transform:translateY(18px) scale(.42) rotate(-5deg)}
+ 68%{opacity:.85;transform:translateY(5px) scale(.82) rotate(-2deg)}
+ 86%{opacity:1;transform:translateY(-2px) scale(1.035) rotate(1deg)}
+ 100%{opacity:1;transform:translateY(0) scale(1) rotate(0)}
+}
+.flower svg{width:100%;height:100%;display:block;overflow:visible}
+.petal{stroke:none}
+.centerOuter{fill:#6a3c08}
+.centerMid{fill:#b86d08}
+.centerInner{fill:#ffd84c}
+
+/* MÚSICA */
+.music{
+ position:absolute;z-index:70;left:50%;bottom:max(8px,env(safe-area-inset-bottom));
+ transform:translateX(-50%);width:min(91vw,380px);padding:8px 9px;
+ border-radius:19px;background:rgba(4,7,6,.9);
+ border:1px solid rgba(255,220,89,.32);backdrop-filter:blur(13px);
+ box-shadow:0 8px 35px rgba(0,0,0,.35)
+}
+.musicTitle{text-align:center;color:#f8e8a0;font:12px Arial,sans-serif;margin-bottom:5px}
+.music iframe{display:block;width:100%;height:72px;border:0;border-radius:12px}
+.music a{display:block;text-align:center;margin-top:5px;color:#ffe06a;text-decoration:none;font:11px Arial,sans-serif}
+
+/* PORTADA */
+.cover{
+ position:absolute;z-index:100;inset:0;display:flex;flex-direction:column;
+ justify-content:center;align-items:center;text-align:center;padding:25px;
+ background:
+ radial-gradient(circle at 50% 42%,rgba(76,105,40,.2),transparent 35%),
+ #020505;
+ transition:opacity 1.6s ease,visibility 1.6s ease
+}
+.cover.hide{opacity:0;visibility:hidden;pointer-events:none}
+.cover .tiny{font-size:13px;letter-spacing:3px;opacity:.68}
+.cover h2{
+ font-family:"Great Vibes",cursive;font-size:clamp(55px,16vw,82px);
+ font-weight:400;color:var(--gold);margin:12px 0 25px;
+ text-shadow:0 0 24px rgba(255,214,70,.13)
+}
+.open{
+ padding:13px 29px;border-radius:30px;border:1px solid rgba(255,221,91,.75);
+ background:rgba(255,218,80,.07);color:#fff4bd;
+ font:17px "Cormorant Garamond",serif;cursor:pointer;
+ box-shadow:0 0 25px rgba(255,216,78,.07);
+ transition:transform .25s ease,background .25s ease
+}
+.open:active{transform:scale(.96);background:rgba(255,218,80,.16)}
+
+@media(max-width:600px){
+ .header{top:6.2%}
+ .kicker{font-size:13px;letter-spacing:3px}
+ .message{top:30.5%}
+ .message .main{font-size:clamp(48px,13vw,70px)}
+ .bouquet{height:49%;bottom:-5px}
+ .flower{width:158px;height:158px}
+ .fA{left:-21px;top:18%}
+ .fB{top:-1%}
+ .fC{right:-21px;top:18%}
+ .fD{left:4%;top:38%}
+ .fE{right:4%;top:38%}
+ .moon{right:7%;top:9%;width:64px;height:64px}
+ .music{width:91vw}
+}
+
+/* iPhones pequeños: conserva flores grandes sin tapar la música */
+@media(max-width:600px) and (max-height:720px){
+ .header{top:5.2%}
+ .message{top:28.5%}
+ .bouquet{height:47%}
+ .flower{width:150px;height:150px}
+ .fA{top:19%}.fB{top:1%}.fC{top:19%}
+ .fD{top:40%}.fE{top:40%}
+}
+</style>
+</head>
+<body>
+<div class="scene">
+
+ <div class="sky" id="sky"></div>
+ <div class="aurora"></div>
+ <div class="moon"></div>
+
+ <header class="header">
+  <div class="kicker">Hoy pensé en usted</div>
+  <h1>Para usted, Val, <span>mi perfect girl</span></h1>
+  <div class="underline"></div>
+ </header>
+
+ <section class="message">
+  <div class="small">Me acordé de usted…</div>
+  <div class="main">Val, mi perfect girl.</div>
+  <div class="love">La amo mucho, <b>Val</b> <span class="heart">♥</span></div>
+ </section>
+
+ <div class="bloomGlow"></div>
+
+ <div class="bouquet">
+  <div class="stem s1"></div><div class="stem s2"></div><div class="stem s3"></div>
+  <div class="stem s4"></div><div class="stem s5"></div>
+  <div class="leaf leaf1"></div><div class="leaf leaf2"></div>
+  <div class="leaf leaf3"></div><div class="leaf leaf4"></div>
+  <div class="flower fA"></div><div class="flower fB"></div><div class="flower fC"></div>
+  <div class="flower fD"></div><div class="flower fE"></div>
+ </div>
+
+ <div class="music">
+  <div class="musicTitle">♪ Una canción para usted · Bruno Mars</div>
+  <iframe src="https://open.spotify.com/embed/track/6skX6In6VpLzev9epAUnpp?utm_source=generator&theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+  <a href="https://www.youtube.com/watch?v=lY5V4hSLWY8" target="_blank">▶ Ver “Risk It All” — video oficial</a>
+ </div>
+
+ <div class="cover" id="cover">
+  <div class="tiny">UN PEQUEÑO DETALLE PARA USTED</div>
+  <h2>Val, mi perfect girl…</h2>
+  <button class="open" id="open">🌻 Abrir mi regalo</button>
+ </div>
+
+</div>
+
+<script>
+const sky=document.getElementById("sky");
+
+for(let i=0;i<115;i++){
+ const s=document.createElement("i");
+ s.className="star"+(Math.random()>.84?" big":"");
+ s.style.left=Math.random()*100+"%";
+ s.style.top=Math.random()*78+"%";
+ s.style.setProperty("--d",(3+Math.random()*4)+"s");
+ s.style.animationDelay=(-Math.random()*5)+"s";
+ sky.appendChild(s);
+}
+
+for(let i=0;i<18;i++){
+ const p=document.createElement("i");
+ p.className="spark";
+ p.style.left=(7+Math.random()*86)+"%";
+ p.style.top=(18+Math.random()*66)+"%";
+ p.style.animationDelay=(Math.random()*5)+"s";
+ sky.appendChild(p);
+}
+
+/* Dibujo SVG: cada flor es una sola unidad, por eso el centro jamás se desplaza */
+const flowers=document.querySelectorAll(".flower");
+const ns="http://www.w3.org/2000/svg";
+
+flowers.forEach((flower,index)=>{
+ const svg=document.createElementNS(ns,"svg");
+ svg.setAttribute("viewBox","0 0 158 158");
+
+ const defs=document.createElementNS(ns,"defs");
+
+ const grad=document.createElementNS(ns,"radialGradient");
+ grad.id="petal"+index;
+ [["0%","#fffde0"],["43%","#fff06a"],["78%","#ffd62e"],["100%","#f2ae00"]]
+ .forEach(([o,c])=>{
+  const st=document.createElementNS(ns,"stop");
+  st.setAttribute("offset",o);st.setAttribute("stop-color",c);grad.appendChild(st);
+ });
+
+ defs.appendChild(grad);svg.appendChild(defs);
+
+ const petals=document.createElementNS(ns,"g");
+ const cx=79,cy=79;
+
+ for(let i=0;i<8;i++){
+  const e=document.createElementNS(ns,"ellipse");
+  e.setAttribute("cx",cx);
+  e.setAttribute("cy",cy-31);
+  e.setAttribute("rx","21");
+  e.setAttribute("ry","37");
+  e.setAttribute("transform",`rotate(${i*45} ${cx} ${cy})`);
+  e.setAttribute("class","petal");
+  petals.appendChild(e);
+ }
+
+ svg.appendChild(petals);
+
+ const outer=document.createElementNS(ns,"circle");
+ outer.setAttribute("cx",cx);outer.setAttribute("cy",cy);outer.setAttribute("r","25");
+ outer.setAttribute("class","centerOuter");
+
+ const mid=document.createElementNS(ns,"circle");
+ mid.setAttribute("cx",cx);mid.setAttribute("cy",cy);mid.setAttribute("r","18");
+ mid.setAttribute("class","centerMid");
+
+ const inner=document.createElementNS(ns,"circle");
+ inner.setAttribute("cx",cx);inner.setAttribute("cy",cy);inner.setAttribute("r","10");
+ inner.setAttribute("class","centerInner");
+
+ svg.appendChild(outer);svg.appendChild(mid);svg.appendChild(inner);
+ flower.appendChild(svg);
+});
+
+document.getElementById("open").addEventListener("click",()=>{
+ document.getElementById("cover").classList.add("hide");
+});
+</script>
+</body>
+</html>
